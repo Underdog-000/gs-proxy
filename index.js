@@ -17,7 +17,7 @@ app.post('/log', async (req, res) => {
     }
 
     // Заменить на свой Web App URL от Google Apps Script
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxZ6sm7V7USoGref7RBcRWXKuzRKcXIwQ-AAhKQhr6S_XmZ0S8Zf29T1q1BJJD2ZZvZ/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCQnHidjArWqFyf86q0aAMnGthdp8pPStcWl1TNyOBhfcE_q108ghMFqHuDAySRxUu/exec';
 
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
