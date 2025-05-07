@@ -10,19 +10,19 @@ app.use(express.json());
 
 app.post('/log', async (req, res) => {
   try {
-    const { question, answer, session_id } = req.body;
+    const { question, answer, session_id, landing_id } = req.body;
 
     if (!question || !answer || !session_id) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
     // Заменить на свой Web App URL от Google Apps Script
-    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyCQnHidjArWqFyf86q0aAMnGthdp8pPStcWl1TNyOBhfcE_q108ghMFqHuDAySRxUu/exec';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyhxdlT1d4UBq-qmrZyO0_rzt9PW__CiI9ONrHpbLUIEgfS-90yrd9p6s58xIAPUyhE/exec';
 
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question, answer, session_id })
+      body: JSON.stringify({ question, answer, session_id, landing_id })
     });
 
     const result = await response.text(); // Google Script обычно возвращает просто "ok"
